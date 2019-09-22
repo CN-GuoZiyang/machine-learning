@@ -4,7 +4,7 @@
 
 ### 二、实验要求及实验环境
 
-#### 实验要求：
+#### 实验要求
 
 1. 生成数据，加入噪声；
 2. 用高阶多项式函数拟合曲线；
@@ -14,7 +14,7 @@
 6. 用不同数据量，不同超参数，不同的多项式阶数，比较实验效果；
 7. 语言不限，可以用matlab，python。求解解析解时可以利用现成的矩阵求逆。梯度下降，共轭梯度要求自己求梯度，迭代优化自己写。不许用现成的平台，例如pytorch，tensorflow的自动微分工具。
 
-#### 实验环境：
+#### 实验环境
 
 - Python 3.7.0
 - JupyterLab 1.1.3
@@ -66,7 +66,7 @@
     x_{(k)}=x_{(k-1)}+\alpha_{(k)}d_{(k)}
     $$
     
-#### 算法的实现
+#### 算法实现
 
 1. 生成加噪声的数据
 
@@ -258,9 +258,41 @@
 
 ### 四、实验结果与分析
 
+1. 生成加入高斯噪声的散点：
 
+    ![](https://tva1.sinaimg.cn/large/006y8mN6ly1g78cpqvl42j30au070wed.jpg)
+
+2. 使用最小二乘法拟合1-20阶多项式：
+
+    ![](https://tva1.sinaimg.cn/large/006y8mN6ly1g78cqdhcj7j30ts0fs0uy.jpg)
+
+3. 使用无正则项的解析解拟合16阶多项式：
+
+    <img src='https://tva1.sinaimg.cn/large/006y8mN6ly1g78crvrp1mj30om0d10t1.jpg' width=600 />
+
+4. 使用有正则项的解析解拟合16阶多项式（惩罚项过大出现退化）：
+
+    <img src='https://tva1.sinaimg.cn/large/006y8mN6ly1g78csb0tn3j30om0d1jrn.jpg' width=600 />
+
+5. 使用梯度下降拟合6阶多项式：
+
+    <img src='https://tva1.sinaimg.cn/large/006y8mN6gy1g78cu7uac8j30om0d1dg7.jpg' width=600 />
+
+6. 共轭梯度法拟合9阶多项式：
+
+    <img src='https://tva1.sinaimg.cn/large/006y8mN6gy1g78cutrabmj30om0d10t2.jpg' width=600 />
 
 ### 五、结论
 
+1. 使用多项式拟合函数时，阶数越高函数的能力越强。
+2. 在散点个数低于阶数的情况下，可能会出现过拟合的情况，这时需要通过增加数据点或者使用惩罚项来防止过拟合。
+3. 惩罚项过大的情况下可能出现退化的现象。
+4. 梯度下降法的步长（学习率）需要不停地调整才能获得较好的效果。
+5. 梯度下降法可能会陷入局部最低点，可以通过设置多个起始点来解决。
+6. 多项式拟合中梯度下降法和共轭梯度法使用的是均方误差代价函数，其本质依旧是解决最小二乘问题
+
 ### 六、参考文献
-### 七、附录：源代码（带注释）
+
+[1]. 深入浅出--梯度下降法及其实现, https://www.jianshu.com/p/c7e642877b0e
+
+[2]. Conjugate gradient method, https://en.wikipedia.org/wiki/Conjugate_gradient_method
