@@ -163,6 +163,8 @@ plt.show()
 测试集准确率：93.33333333333333%
 ```
 
+![](https://tva1.sinaimg.cn/large/006y8mN6ly1g80egmr9ncj30ak070jre.jpg)
+
 生成不满足朴素贝叶斯的数据集：
 
 ![](https://tva1.sinaimg.cn/large/006y8mN6ly1g80ab59j0bj30ak070748.jpg)
